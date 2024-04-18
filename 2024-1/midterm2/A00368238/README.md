@@ -33,3 +33,22 @@ fi
 <b>4. </b>There is a <i>registry</i> image in Dockerhub you can use. <br><br>
 <b>5. <kbd>docker run -d -p 5000:5000  registry</kbd> ; <kbd>docker tag webapp localhost:5000/webapp</kbd> ; <kbd>docker push localhost:5000/webapp</kbd>. 
 <b> <kbd>kubectl port-forward deployments/webapp-deployment 8888 -n web &</kbd> ; <kbd>curl localhost:8888</kbd> (another option to get the message from the webapp is to <i>kubectl exec</i> into the pod and curl locally but this is not verified by the "Check Solution" script).
+
+## Result
+
+1. Get the pod name by using `kubectl get pod -n web`
+    ```
+    NAME                                 READY   STATUS    RESTARTS   AGE
+    webapp-deployment-8575955d8b-jwsh9   1/1     Running   0          148m
+    ```
+
+2. Accesing the pod terminal by using:
+    ```
+    kubectl exec -n web -it webapp-deployment-8575955d8b-jwsh9 -- bash
+    ```
+
+3. Show the results
+    ```
+    root@webapp-deployment-8575955d8b-jwsh9:/app# curl localhost:8888 && echo
+    Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch
+    ```

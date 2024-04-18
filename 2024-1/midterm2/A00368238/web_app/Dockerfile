@@ -10,8 +10,8 @@ COPY app.py .
 # Instala Flask, el módulo necesario para ejecutar el servidor web
 RUN pip install Flask
 
-# Expone el puerto 5000 para que el servidor pueda ser accesible desde fuera del contenedor
-EXPOSE 5000
+# Expone el puerto 8888 para que el servidor pueda ser accesible desde fuera del contenedor
+EXPOSE 8888
 
 # Define el comando a ejecutar cuando el contenedor se inicie
 CMD ["python", "app.py"]
